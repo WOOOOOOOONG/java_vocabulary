@@ -13,15 +13,15 @@ public class VocaControll {
 	
 	public void mainMenu() {
 		System.out.println("---------------------------");
-		System.out.println("                í† ìµ í•„ìˆ˜ë‹¨ì–´ 100");
+		System.out.println("                ÅäÀÍ ÇÊ¼ö´Ü¾î 100");
 		System.out.println("---------------------------");
 		
 		while(true) {
-			System.out.println("1. ì „ì²´ ë‹¨ì–´ ì¶œë ¥");
-			System.out.println("2. í•œ ë‹¨ì–´ì”© ê³µë¶€í•˜ê¸°");
-			System.out.println("3. ë‚´ ë‹¨ì–´ì¥ ê³µë¶€í•˜ê¸°");
-			System.out.println("4. ì¢…ë£Œ");
-			System.out.print("ì„ íƒ : ");
+			System.out.println("1. ÀüÃ¼ ´Ü¾î Ãâ·Â");
+			System.out.println("2. ÇÑ ´Ü¾î¾¿ °øºÎÇÏ±â");
+			System.out.println("3. ³» ´Ü¾îÀå °øºÎÇÏ±â");
+			System.out.println("4. Á¾·á");
+			System.out.print("¼±ÅÃ : ");
 			int menu = s.nextInt();
 			s.nextLine();
 			System.out.println();
@@ -30,7 +30,7 @@ public class VocaControll {
 			case 1: printAll(); break;
 			case 2: studyVoca(); break;
 			case 3: myVocabulary(); break;
-			case 4: System.out.println("ì¢…ë£Œí•˜ê² ìŠµë‹ˆë‹¤."); break;
+			case 4: System.out.println("Á¾·áÇÏ°Ú½À´Ï´Ù."); break;
 			default: break;
 			}
 			
@@ -46,7 +46,7 @@ public class VocaControll {
 		
 		while(it.hasNext()) {
 			Map.Entry<String, String> entry = it.next();
-			System.out.printf("%dë²ˆ : %s, %s\n", (index++ + 1), entry.getKey(), entry.getValue());
+			System.out.printf("%d¹ø : %s, %s\n", (index++ + 1), entry.getKey(), entry.getValue());
 		}
 		
 	}
@@ -63,19 +63,19 @@ public class VocaControll {
 		int[] list = new int[3];
 		String[] stringList = new String[3];
 			
-		// íƒˆì¶œ ì¡°ê±´ ì„¤ëª…
-		System.out.println("ë‹¨ì–´ ê³µë¶€ë¥¼ ì‹œì‘í•˜ê² ìŠµë‹ˆë‹¤. 1~4ê¹Œì§€ í•´ë‹¹ ì˜ë‹¨ì–´ì— ì•Œë§ì€ ì •ë‹µì„ ì…ë ¥í•˜ì‹œë©´ ë©ë‹ˆë‹¤.");
-		System.out.println("ê·¸ë¦¬ê³  0ì„ ì…ë ¥í•˜ì‹œë©´ ë‹¨ì–´ì¥ ê³µë¶€ê°€ ì¢…ë£Œë©ë‹ˆë‹¤.\n");
+		// Å»Ãâ Á¶°Ç ¼³¸í
+		System.out.println("´Ü¾î °øºÎ¸¦ ½ÃÀÛÇÏ°Ú½À´Ï´Ù. 1~4±îÁö ÇØ´ç ¿µ´Ü¾î¿¡ ¾Ë¸ÂÀº Á¤´äÀ» ÀÔ·ÂÇÏ½Ã¸é µË´Ï´Ù.");
+		System.out.println("±×¸®°í 0À» ÀÔ·ÂÇÏ½Ã¸é ´Ü¾îÀå °øºÎ°¡ Á¾·áµË´Ï´Ù.\n");
 		s.nextLine();
 		
-		// ê°ê´€ì‹ UI
+		// °´°ü½Ä UI
 		while(it.hasNext()) {
 			Map.Entry<String, String> entry = it.next();
 			String matter = entry.getKey();
 			System.out.println(entry.getKey());
 			answer = entry.getValue();
 				
-			// ê°ê´€ì‹ ë¦¬ìŠ¤íŠ¸ë“¤ ëœë¤ìœ¼ë¡œ ì¸ë±ìŠ¤
+			// °´°ü½Ä ¸®½ºÆ®µé ·£´ıÀ¸·Î ÀÎµ¦½º
 			for(int i = 0; i < 3; i++) {
 				int random;
 				while(true) {
@@ -87,7 +87,7 @@ public class VocaControll {
 					
 			}
 				
-			// ê°ê´€ì‹ ë³´ê¸°ë“¤ì— ê°’ ë„£ê¸°
+			// °´°ü½Ä º¸±âµé¿¡ °ª ³Ö±â
 			for(int i = 0; i < list.length; i++) {
 				it2 = voca.getVocaList().entrySet().iterator();
 				for(int j = 0; j < list[i]; j++) {
@@ -100,7 +100,7 @@ public class VocaControll {
 				}
 			}
 				
-			// ê°ê´€ì‹ ë³´ê¸°
+			// °´°ü½Ä º¸±â
 			String[] choice = new String[4];	
 			int[] prevValue = new int[100];
 			int prevIndex = 0;
@@ -109,7 +109,7 @@ public class VocaControll {
 				boolean isOverlap = false;
 				int random = (int)(Math.random() * 4);
 				
-				// ê°ê´€ì‹ì— ë„£ì„ ìˆ«ìê°€ ì¤‘ë³µë˜ì—ˆëŠ”ì§€
+				// °´°ü½Ä¿¡ ³ÖÀ» ¼ıÀÚ°¡ Áßº¹µÇ¾ú´ÂÁö
 				for(int i = 0; i < prevIndex; i++) {
 					if(prevValue[i] == random) {
 						isOverlap = true;
@@ -134,23 +134,23 @@ public class VocaControll {
 				}
 			}
 			
-			// ê°ê´€ì‹ ë³´ê¸° ì¶œë ¥
+			// °´°ü½Ä º¸±â Ãâ·Â
 			for(int i = 0; i < choice.length; i++) {
 				System.out.printf("%d : %s        ", (i + 1), choice[i]);
 			}
 			System.out.println();
 			
-			// ê°ê´€ì‹ ì •ë‹µ ë§ì¶”ê¸°
+			// °´°ü½Ä Á¤´ä ¸ÂÃß±â
 			int select = 0;
 			while(true) {
-				System.out.print("ì˜¬ë°”ë¥¸ ê²ƒì„ íƒí•˜ì‹œì˜¤ : ");
+				System.out.print("¿Ã¹Ù¸¥ °ÍÀ» ÅÃÇÏ½Ã¿À : ");
 				select = s.nextInt();
 				s.nextLine();
 			
 				if(select > 4) {
-					System.out.println("ì˜¬ë°”ë¥´ì§€ ì•Šì€ ìˆ«ìë¥¼ ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤. 1~4ê¹Œì§€ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+					System.out.println("¿Ã¹Ù¸£Áö ¾ÊÀº ¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù. 1~4±îÁö ÀÔ·ÂÇØÁÖ¼¼¿ä.");
 				}else if(select == 0) {
-					System.out.println("ë‹¨ì–´ ê³µë¶€ë¥¼ ì¢…ë£Œí•˜ê² ìŠµë‹ˆë‹¤.");
+					System.out.println("´Ü¾î °øºÎ¸¦ Á¾·áÇÏ°Ú½À´Ï´Ù.");
 					return;
 				}else {
 					break;
@@ -158,12 +158,12 @@ public class VocaControll {
 			}
 			
 			if(choice[select - 1].equals(answer)) {
-				System.out.println("ì •ë‹µì…ë‹ˆë‹¤. ë‹¤ìŒ ë¬¸ì œë¡œ ë„˜ì–´ê°€ê² ìŠµë‹ˆë‹¤.\n");
+				System.out.println("Á¤´äÀÔ´Ï´Ù. ´ÙÀ½ ¹®Á¦·Î ³Ñ¾î°¡°Ú½À´Ï´Ù.\n");
 			}else {
-				System.out.printf("í‹€ë ¸ìŠµë‹ˆë‹¤. í•´ë‹¹ ë‹¨ì–´ì˜ ëœ»ì€ \"%s\"ì´ë©°, ë‚˜ë§Œì˜ ë‹¨ì–´ì¥ì— ì €ì¥í•˜ë ¤ë©´ 'Y', ë„˜ì–´ê°€ì‹œë ¤ë©´ 'N'ì„ ì…ë ¥í•´ì£¼ì„¸ìš”. : ", answer);
+				System.out.printf("Æ²·È½À´Ï´Ù. ÇØ´ç ´Ü¾îÀÇ ¶æÀº \"%s\"ÀÌ¸ç, ³ª¸¸ÀÇ ´Ü¾îÀå¿¡ ÀúÀåÇÏ·Á¸é 'Y', ³Ñ¾î°¡½Ã·Á¸é 'N'À» ÀÔ·ÂÇØÁÖ¼¼¿ä. : ", answer);
 				String menu = s.nextLine();
 				if(menu.equalsIgnoreCase("Y")) {
-					System.out.println("ë‹¨ì–´ì¥ì— ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤.");
+					System.out.println("´Ü¾îÀå¿¡ ÀúÀåµÇ¾ú½À´Ï´Ù.");
 					voca.addMyVoca(matter, answer);
 					System.out.println();
 				}else {
@@ -172,17 +172,17 @@ public class VocaControll {
 			}
 			
 		}
-		System.out.println("ë‹¨ì–´ 100ê°œë¥¼ ë‹¤ ê³µë¶€í•˜ì…¨ìŠµë‹ˆë‹¤.");
+		System.out.println("´Ü¾î 100°³¸¦ ´Ù °øºÎÇÏ¼Ì½À´Ï´Ù.");
 		System.out.println();
 	}
 	
 	public void myVocabulary() {
 		while(true) {
 			HashMap<String, String> myVoca = voca.getMyVoca();
-			System.out.println("1. ë‚´ ë‹¨ì–´ì¥ ì „ì²´ ì¶œë ¥");
-			System.out.println("2. ë‚´ ë‹¨ì–´ì¥ ê³µë¶€");
-			System.out.println("3. ì¢…ë£Œ");
-			System.out.print("ì„ íƒ : ");
+			System.out.println("1. ³» ´Ü¾îÀå ÀüÃ¼ Ãâ·Â");
+			System.out.println("2. ³» ´Ü¾îÀå °øºÎ");
+			System.out.println("3. Á¾·á");
+			System.out.print("¼±ÅÃ : ");
 			int menu = s.nextInt();
 			s.nextLine();
 			
@@ -193,7 +193,7 @@ public class VocaControll {
 			}else if(menu == 3) {	
 				return;
 			}else {
-				System.out.println("1, 2, 3 ì¤‘ í•˜ë‚˜ë¥¼ ì„ íƒí•´ ì£¼ì‹­ì‹œì˜¤.");
+				System.out.println("1, 2, 3 Áß ÇÏ³ª¸¦ ¼±ÅÃÇØ ÁÖ½Ê½Ã¿À.");
 			}
 				
 		}
@@ -204,9 +204,9 @@ public class VocaControll {
 	public void printVocabulary(HashMap<String, String> myVoca) {
 		Iterator<Map.Entry<String, String>> iter =  myVoca.entrySet().iterator();
 		
-		// ì•„ì§ ë‹¨ì–´ì¥ì— ë‹¨ì–´ê°€ ì—†ì„ ì‹œ
+		// ¾ÆÁ÷ ´Ü¾îÀå¿¡ ´Ü¾î°¡ ¾øÀ» ½Ã
 		if(!(iter.hasNext())) {
-			System.out.println("ì €ì¥ëœ ë‹¨ì–´ê°€ ì—†ìŠµë‹ˆë‹¤.");
+			System.out.println("ÀúÀåµÈ ´Ü¾î°¡ ¾ø½À´Ï´Ù.");
 			return;
 		}
 		
@@ -222,9 +222,9 @@ public class VocaControll {
 		Iterator<Map.Entry<String, String>> it = voca.getMyVoca().entrySet().iterator();
 		Iterator<Map.Entry<String, String>> it2 = voca.getMyVoca().entrySet().iterator();
 		
-		// ì•„ì§ ë‹¨ì–´ì¥ì— ë‹¨ì–´ê°€ ì—†ì„ ì‹œ
+		// ¾ÆÁ÷ ´Ü¾îÀå¿¡ ´Ü¾î°¡ ¾øÀ» ½Ã
 		if(!(it.hasNext())) {
-			System.out.println("ì €ì¥ëœ ë‹¨ì–´ê°€ ì—†ìŠµë‹ˆë‹¤.");
+			System.out.println("ÀúÀåµÈ ´Ü¾î°¡ ¾ø½À´Ï´Ù.");
 			return;
 		}
 		
@@ -236,19 +236,19 @@ public class VocaControll {
 		int[] list = new int[3];
 		String[] stringList = new String[3];
 			
-		// íƒˆì¶œ ì¡°ê±´ ì„¤ëª…
-		System.out.println("ë‚´ ë‹¨ì–´ì¥ì— ìˆëŠ” ë‹¨ì–´ ê³µë¶€ë¥¼ ì‹œì‘í•˜ê² ìŠµë‹ˆë‹¤. 1~4ê¹Œì§€ í•´ë‹¹ ì˜ë‹¨ì–´ì— ì•Œë§ì€ ì •ë‹µì„ ì…ë ¥í•˜ì‹œë©´ ë©ë‹ˆë‹¤.");
-		System.out.println("ê·¸ë¦¬ê³  0ì„ ì…ë ¥í•˜ì‹œë©´ ë‹¨ì–´ì¥ ê³µë¶€ê°€ ì¢…ë£Œë©ë‹ˆë‹¤.\n");
+		// Å»Ãâ Á¶°Ç ¼³¸í
+		System.out.println("³» ´Ü¾îÀå¿¡ ÀÖ´Â ´Ü¾î °øºÎ¸¦ ½ÃÀÛÇÏ°Ú½À´Ï´Ù. 1~4±îÁö ÇØ´ç ¿µ´Ü¾î¿¡ ¾Ë¸ÂÀº Á¤´äÀ» ÀÔ·ÂÇÏ½Ã¸é µË´Ï´Ù.");
+		System.out.println("±×¸®°í 0À» ÀÔ·ÂÇÏ½Ã¸é ´Ü¾îÀå °øºÎ°¡ Á¾·áµË´Ï´Ù.\n");
 		s.nextLine();
 		
-		// ê°ê´€ì‹ UI
+		// °´°ü½Ä UI
 		while(it.hasNext()) {
 			Map.Entry<String, String> entry = it.next();
 			String matter = entry.getKey();
 			System.out.println(entry.getKey());
 			answer = entry.getValue();
 				
-			// ê°ê´€ì‹ ë¦¬ìŠ¤íŠ¸ë“¤ ëœë¤ìœ¼ë¡œ ì¸ë±ìŠ¤
+			// °´°ü½Ä ¸®½ºÆ®µé ·£´ıÀ¸·Î ÀÎµ¦½º
 			for(int i = 0; i < 3; i++) {
 				int random;
 				while(true) {
@@ -260,7 +260,7 @@ public class VocaControll {
 					
 			}
 				
-			// ê°ê´€ì‹ ë³´ê¸°ë“¤ì— ê°’ ë„£ê¸°
+			// °´°ü½Ä º¸±âµé¿¡ °ª ³Ö±â
 			for(int i = 0; i < list.length; i++) {
 				it2 = voca.getVocaList().entrySet().iterator();
 				for(int j = 0; j < list[i]; j++) {
@@ -273,7 +273,7 @@ public class VocaControll {
 				}
 			}
 				
-			// ê°ê´€ì‹ ë³´ê¸°
+			// °´°ü½Ä º¸±â
 			String[] choice = new String[4];	
 			int[] prevValue = new int[100];
 			int prevIndex = 0;
@@ -282,7 +282,7 @@ public class VocaControll {
 				boolean isOverlap = false;
 				int random = (int)(Math.random() * 4);
 				
-				// ê°ê´€ì‹ì— ë„£ì„ ìˆ«ìê°€ ì¤‘ë³µë˜ì—ˆëŠ”ì§€
+				// °´°ü½Ä¿¡ ³ÖÀ» ¼ıÀÚ°¡ Áßº¹µÇ¾ú´ÂÁö
 				for(int i = 0; i < prevIndex; i++) {
 					if(prevValue[i] == random) {
 						isOverlap = true;
@@ -307,23 +307,23 @@ public class VocaControll {
 				}
 			}
 			
-			// ê°ê´€ì‹ ë³´ê¸° ì¶œë ¥
+			// °´°ü½Ä º¸±â Ãâ·Â
 			for(int i = 0; i < choice.length; i++) {
 				System.out.printf("%d : %s        ", (i + 1), choice[i]);
 			}
 			System.out.println();
 			
-			// ê°ê´€ì‹ ì •ë‹µ ë§ì¶”ê¸°
+			// °´°ü½Ä Á¤´ä ¸ÂÃß±â
 			int select = 0;
 			while(true) {
-				System.out.print("ì˜¬ë°”ë¥¸ ê²ƒì„ íƒí•˜ì‹œì˜¤ : ");
+				System.out.print("¿Ã¹Ù¸¥ °ÍÀ» ÅÃÇÏ½Ã¿À : ");
 				select = s.nextInt();
 				s.nextLine();
 			
 				if(select > 4) {
-					System.out.println("ì˜¬ë°”ë¥´ì§€ ì•Šì€ ìˆ«ìë¥¼ ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤. 1~4ê¹Œì§€ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+					System.out.println("¿Ã¹Ù¸£Áö ¾ÊÀº ¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù. 1~4±îÁö ÀÔ·ÂÇØÁÖ¼¼¿ä.");
 				}else if(select == 0) {
-					System.out.println("ë‹¨ì–´ ê³µë¶€ë¥¼ ì¢…ë£Œí•˜ê² ìŠµë‹ˆë‹¤.");
+					System.out.println("´Ü¾î °øºÎ¸¦ Á¾·áÇÏ°Ú½À´Ï´Ù.");
 					return;
 				}else {
 					break;
@@ -331,12 +331,12 @@ public class VocaControll {
 			}
 			
 			if(choice[select - 1].equals(answer)) {
-				System.out.println("ì •ë‹µì…ë‹ˆë‹¤. ë‹¤ìŒ ë¬¸ì œë¡œ ë„˜ì–´ê°€ê² ìŠµë‹ˆë‹¤.\n");
+				System.out.println("Á¤´äÀÔ´Ï´Ù. ´ÙÀ½ ¹®Á¦·Î ³Ñ¾î°¡°Ú½À´Ï´Ù.\n");
 			}else {
-				System.out.printf("í‹€ë ¸ìŠµë‹ˆë‹¤. í•´ë‹¹ ë‹¨ì–´ì˜ ëœ»ì€ \"%s\"ì´ë©°, ë‚˜ë§Œì˜ ë‹¨ì–´ì¥ì— ì €ì¥í•˜ë ¤ë©´ 'Y', ë„˜ì–´ê°€ì‹œë ¤ë©´ 'N'ì„ ì…ë ¥í•´ì£¼ì„¸ìš”. : ", answer);
+				System.out.printf("Æ²·È½À´Ï´Ù. ÇØ´ç ´Ü¾îÀÇ ¶æÀº \"%s\"ÀÌ¸ç, ³ª¸¸ÀÇ ´Ü¾îÀå¿¡ ÀúÀåÇÏ·Á¸é 'Y', ³Ñ¾î°¡½Ã·Á¸é 'N'À» ÀÔ·ÂÇØÁÖ¼¼¿ä. : ", answer);
 				String menu = s.nextLine();
 				if(menu.equalsIgnoreCase("Y")) {
-					System.out.println("ë‹¨ì–´ì¥ì— ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤.");
+					System.out.println("´Ü¾îÀå¿¡ ÀúÀåµÇ¾ú½À´Ï´Ù.");
 					voca.addMyVoca(matter, answer);
 					System.out.println();
 				}else {
@@ -345,6 +345,6 @@ public class VocaControll {
 			}
 			
 		}
-		System.out.println("ë‚´ ë‹¨ì–´ì¥ì— ìˆëŠ” ë‹¨ì–´ë¥¼ ëª¨ë‘ ê³µë¶€í–ˆìŠµë‹ˆë‹¤.");
+		System.out.println("³» ´Ü¾îÀå¿¡ ÀÖ´Â ´Ü¾î¸¦ ¸ğµÎ °øºÎÇß½À´Ï´Ù.");
 	}
 }
